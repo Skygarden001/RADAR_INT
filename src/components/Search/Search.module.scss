@@ -1,0 +1,96 @@
+.search_collapse{
+    position: absolute;
+    top: 6.5%;
+    left: 5.5%;
+    overflow: hidden;
+    z-index: 100;
+    background-color: rgb(176, 165, 223);
+}
+.wrapper{
+    height: 100%;
+    width: 25%;
+    background-color: rgb(253, 253, 255);  
+    margin-left: 0%;
+    box-sizing: border-box;
+    position: fixed;
+    text-align: left;
+    top: 5.5%;
+    font-size: 20px;
+    z-index: 100;
+    padding: 0%;
+}
+.button {
+    flex: auto;
+    text-align: center;
+    list-style: none;
+    cursor: pointer;
+    color: #eee;
+    padding: 9px 10.5px 7px;
+    width: 5%;
+}
+.satellite {
+    position: absolute;
+    background-color: rgb(61, 16, 224);
+    color: #eee;
+    top: 2%;
+    left: 7%;
+    overflow: hidden;
+    z-index: 100;
+}
+.satellite_check {
+    position: absolute;
+    top: 8%;
+    left: 7%;
+    overflow: hidden;
+    z-index: 100;
+}
+.Mode {
+    position: absolute;
+    background-color: rgb(61, 16, 224);
+    color: #eee;
+    top: 13%;
+    left: 7%;
+    overflow: hidden;
+    z-index: 100;
+}
+.mode {
+    position: absolute;
+    top: 19%;
+    left: 7%;
+    overflow: hidden;
+    z-index: 100;
+}
+.cesium-svgPath-svg_Time {
+    position: absolute;
+    background-color: rgb(61, 16, 224);
+    color: #eee;
+    top: 24%;
+    left: 7%;
+    overflow: hidden;
+    z-index: 100;
+}
+.cesium-svgPath-svg_time {
+    position: absolute;
+    top: 31%;
+    left: 7%;
+    overflow: hidden;
+    z-index: 100;
+}
+.cesium-svgPath-svg_search {
+    position: absolute;
+    top: 38%;
+    left: 0%;
+    width: 100%;
+    background-color: black;
+    color: #eee;
+    overflow: hidden;
+    z-index: 100;
+}
+.data_table {
+    position: absolute;
+    top: 45%;
+    left: 7%;
+    width: 93%;
+    overflow: hidden;
+    z-index: 100;
+}
