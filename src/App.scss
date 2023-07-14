@@ -1,0 +1,115 @@
+.cesium-viewer-bottom {
+    display: none;
+}
+.select_toolbar {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.ant-btn-default {
+    border: none
+}
+.ant-checkbox-wrapper {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.5714285714285714;
+  list-style: none;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  display: inline-flex;
+  align-items: baseline;
+  cursor: pointer;
+}
+.select_button {
+    display: inline-block;
+    position: relative;
+    background: #303336;
+    border: 1px solid #444;
+    color: #edffff;
+    fill: #edffff;
+    border-radius: 4px;
+    padding: 5px 12px;
+    margin: 2px 3px;
+    z-index: 1;
+    left: 0;
+
+  }
+.select_toolbar_button {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border-radius: 14%;
+  padding: 0;
+  vertical-align: middle;
+  
+}
+
+.select_button:focus {
+  color: #fff;
+  fill: #fff;
+  border-color: #ea4;
+  outline: none;
+  z-index: 1;
+}
+
+
+ .select_button:hover {
+    color: #fff;
+    fill: #fff;
+    background: #48b;
+    border-color: #aef;
+    box-shadow: 0 0 8px #fff;
+  } 
+  .select_button:active {
+    color: #000;
+    fill: #000;
+    background: #adf;
+    border-color: #fff;
+    box-shadow: 0 0 8px #fff;
+  }
+.ant-bnt.focus{
+    color: #fff;
+    //fill: #fff;
+    border-color: #ea4;
+    outline: none;
+    z-index: 1;
+}
+.select_parameters{
+    display: block;
+    position: absolute;
+    box-sizing: content-box;
+    top: auto;
+    left: 0;
+    width: 320px;
+    height: 480px;
+    max-height: 550px;
+    margin-top: 5px;
+    background-color: rgba(38, 38, 38, 0.75);
+    border: 1px solid #444;
+    padding: 6px;
+    overflow: auto;
+    border-radius: 10px;
+    color:#fff;
+}
+.button_satellite{
+    left: 38px;
+}
+
+.button_launch{
+    left: 75px;
+}
+
+.button_int{
+    left: 112px;
+}
+
+.button_upfilejson{
+    left: 149px;
+    top: 0px;
+    padding: 3px;
+    margin: 0px 0px;
+}
+
