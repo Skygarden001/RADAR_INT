@@ -1,3 +1,6 @@
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+  color: white;
+}
 .cesium-viewer-bottom {
     display: none;
 }
@@ -12,10 +15,9 @@
 }
 .ant-checkbox-wrapper {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5714285714285714;
   list-style: none;
   font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
@@ -32,10 +34,10 @@
     fill: #edffff;
     border-radius: 4px;
     padding: 5px 12px;
-    margin: 2px 3px;
+    margin-top: 2px;
+    margin-bottom: 3px;
     z-index: 1;
     left: 0;
-
   }
 .select_toolbar_button {
   box-sizing: border-box;
@@ -44,7 +46,6 @@
   border-radius: 14%;
   padding: 0;
   vertical-align: middle;
-  
 }
 
 .select_button:focus {
@@ -84,7 +85,7 @@
     top: auto;
     left: 0;
     width: 320px;
-    height: 480px;
+    height: 490px;
     max-height: 550px;
     margin-top: 5px;
     background-color: rgba(38, 38, 38, 0.75);
@@ -110,6 +111,12 @@
     left: 149px;
     top: 0px;
     padding: 3px;
-    margin: 0px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.Menu_select_radar {
+  left: 340px;
+  top: 44px;
+  height: 270px
 }
 
