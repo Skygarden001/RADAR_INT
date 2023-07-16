@@ -64,8 +64,6 @@ export default function DataTable() {
             color: 'white',
         }
          }}
-
-        
         rowHeight={30}
         columnHeaderHeight={40}
         rows={rows}  

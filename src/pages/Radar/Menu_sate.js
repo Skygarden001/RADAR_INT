@@ -4,7 +4,6 @@ import {useState} from 'react';
  function Menu_select_radar({ var_select_satellite }) {
     const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
     const [colappse_selected, setColappse_selected] = useState(false);
-
     // process after choosing satellite: hidden and get checkbos satellite
     const handle_onClick_APPLY = () => {
       setColappse_selected(false)

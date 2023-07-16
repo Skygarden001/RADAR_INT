@@ -10,11 +10,10 @@ import { faReact } from '@fortawesome/free-brands-svg-icons';
 import { faShuttleSpace } from '@fortawesome/free-solid-svg-icons';
 // Add the desired icons to the library
 let cx = classNames.bind(styles)
-function Uploadfile() {
-const [selectfile, setselectfile] = useState(null);
+function Uploadfile({var_import_json}) {
+const [selectfile, setselectfile] = useState('');
 const handleFile = (e) => {
     const file = e.target.files[0];
-
     if (file) {
         const fileReader = new FileReader();
         fileReader.onload = (e) => {
@@ -25,17 +24,16 @@ const handleFile = (e) => {
                 parsedFile = JSON.parse(content);
                 // Process the parsed file
                 // ...
-                console.log(parsedFile);
+                //console.log(parsedFile);
             } catch (error) {
                 console.error("Invalid file format");
             }
             setselectfile(parsedFile)
+            var_import_json(parsedFile)
         };
         fileReader.readAsText(file, "UTF-8");
-        
     }
 };
-
     return ( 
     //     <button 
     //     className={cx( 'select_toolbar_button','select_button','button_upfilejson')} 
@@ -47,7 +45,7 @@ const handleFile = (e) => {
         < div className={cx( 'select_toolbar_button','select_button','button_upfilejson')}  >
             <input type="file" onChange = {handleFile} id="upload" hidden/>
             <label title='Import file json'
-            For="upload" 
+            htmlFor="upload" 
             > 
                 <FontAwesomeIcon icon={faArrowUpFromBracket } rotation={0} size="xl" style={{color: "#dde1e9",}} /> 
             </label>
