@@ -7,11 +7,11 @@ import Launch from  "./pages/Launch/Launch"
 import Int from "./pages/Int/Int"
 import Uploadfile from "./components/Uploadfile/Uploadfile";
 import { useState, useEffect } from "react";
+import Provider_geom from './store/Provide_geom'
 let cx = classNames.bind(styles)
 function App() {
   const [sharedData, setSharedData] = useState({
-    "features": [
-      
+    "features": [  
     ],
     "type": "FeatureCollection"
   });
@@ -19,21 +19,20 @@ function App() {
   const handleVarImportJson = (jsonData) => {
     setSharedData(jsonData);
   };
-  // useEffect(() => {
-  //   // Assuming var_import_json is defined elsewhere
-  //   handleDataJson(var_import_json);
-  // }, []);
-  console.log("before prop",sharedData)
-  return (
-    <div>
-    <Earth sharedData={sharedData} />  
-    <Radar/>
-    <Satellite/>
-    <Launch/>
-    <Int/>
-    <Uploadfile var_import_json={handleVarImportJson}/>
-    
-    </div>
+  const [select_appear, onClick_button] = useState();
+  const handle_select =(e) => {
+    onClick_button(e);
+    console.log(e)
+  }
+  return( 
+    <Provider_geom>
+      <Earth sharedData={sharedData} />  
+      <Radar  appear_mode = {select_appear} onChange_appear={handle_select}/>
+      <Satellite appear_mode = {select_appear} onChange_appear={handle_select}/>
+      <Launch/>
+      <Int/>
+      <Uploadfile var_import_json={handleVarImportJson}/>
+    </Provider_geom>
    );
 }
 export default App;

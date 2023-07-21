@@ -1,12 +1,13 @@
 //import {Context, Context_Sat} from '../../../store/Context';
 import * as React from 'react';
 //import { useState, useEffect, useContext } from 'react';
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useContext} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import {Context, Context_Sat} from "../../store/Context";
 
 export default function DataTable() {
-  
   const [selectedRows, setSelectedRows] = useState([]);
+
   // Handler for retrieving selected rows
   const handleSelectionChange = (selection) => {
     setSelectedRows(selection);
@@ -15,8 +16,9 @@ export default function DataTable() {
     const selectedRowsData = rows.filter((row) => selectedRows.includes(row.id));
    // console.log('Selected Rows:', selectedRowsData);
   }, [selectedRows]);
-  //const [state, dispatch] = useContext(Context)
-  //const rows = state.features.map((feature) => feature.properties);
+  const [state, dispatch] = useContext(Context)
+  console.log(state)
+  const rows = state.features.map((feature) => feature.properties);
   const columns = [
     { field: 'id', headerName: 'Id', width: 50 },
     { field: 'satellite_name', headerName: 'Sat_name', width: 100 },
@@ -26,19 +28,6 @@ export default function DataTable() {
     { field: 'imaging_time', headerName: 'Imaging_time', width: 100 },
     { field: 'resolution', headerName: 'Resolution', width: 100 },
   ];
-  const rows = [
-    { id: 1, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 2, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 3, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 4, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 5, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 6, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 7, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 8, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 9, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 10, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-    { id: 11, satellite_name: 'Snow', mode: 'Jon', start_datetime: "45" },
-]
   return(
     <div style={{ height: 325, width: '100%', borderColor: 'white', color:'white !important', left: "2px" }}>
       <DataGrid style={{color:'white'}}
