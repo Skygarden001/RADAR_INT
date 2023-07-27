@@ -7,8 +7,9 @@ import { faEarthAsia } from '@fortawesome/free-solid-svg-icons';
 import { useState, useContext } from "react";
 import { Button, Space, Tooltip, Col, Row } from 'antd';
 import {Context, Context_Sat} from "../../store/Context";
-// Add the desired icons to the library
-let cx = classNames.bind(styles)
+import FileUpload from "./FileUpload";
+  // Add the desired icons to the library
+  let cx = classNames.bind(styles)
   const Satellite = ({appear_mode, onChange_appear}) => {
   const [state_sat, dispatch_sat] = useContext(Context_Sat);
   const [hidden_tab_satellite, setHidden_tab_satellite] = useState(false)
@@ -44,6 +45,23 @@ let cx = classNames.bind(styles)
        fetchDataFromAPI()
       }
     // ........................................
+    
+    // const [fileData, setFileData] = useState("");
+    // const getFile = (e) => {
+    // setFileData(e.target.files[0]);
+    // const uploadFile = (e) => { 
+    //   e.preventDefault();   
+    //   const data = new FormData();
+    //   data.append("file", fileData);
+    //   axios({
+    //     method: "POST",
+    //     url: "http://localhost:5000/upload",
+    //     data: data,
+    //   }).then((res) => {       
+    //       alert(res.data.message);
+    //   });
+    // };
+    // };
    return ( 
     <div className={cx('select_toolbar')}>
       <button 
@@ -54,6 +72,9 @@ let cx = classNames.bind(styles)
       </button>
       { appear_mode==="satellite" &&
         <div className={cx('select_parameters')} >
+          <Row gutter={[24, 48]} style={{paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
+              <FileUpload/>
+          </Row>
           <Row gutter={[24, 48]} style={{paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
             <Col  span={12} style={{paddingTop:'2px', paddingRight:'5px',paddingLeft:'5px',paddingBottom:'0px' }}>
                 <Button style={{background: 'rgb(243, 186, 68)', width: '100%' }}
@@ -70,6 +91,10 @@ let cx = classNames.bind(styles)
                 </Button>
               </Col>
             </Row>
+            <Row gutter={[24, 48]} style={{paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
+            
+            </Row>
+          
         </div>
       }
     </div>

@@ -19,11 +19,11 @@ let cx = classNames.bind(styles)
 
 const Radar = ({appear_mode, onChange_appear}) => {
   const satellite_data = [
-    {id: 1, label: 'Capella 06', checked: true},
-    {id: 2, label: 'Capella 07', checked: true},
-    {id: 3, label: 'Capella 08', checked: true},
-    {id: 4, label: 'Capella 09', checked: true},
-    {id: 5, label: 'Capella 10', checked: true},
+    {id: 1, label: 'CAPELLA-6 (WHITNEY)', checked: true},
+    {id: 2, label: 'CAPELLA-7 (WHITNEY)', checked: true},
+    {id: 3, label: 'CAPELLA-8 (WHITNEY)', checked: true},
+    {id: 4, label: 'CAPELLA-9 (WHITNEY)', checked: true},
+    {id: 5, label: 'CAPELLA-10 (WHITNEY)', checked: true},
     {id: 6, label: 'SKYMED 1', checked: true},
     {id: 7, label: 'SKYMED 2', checked: true},
     {id: 8, label: 'SKYMED 3', checked: true},
@@ -90,7 +90,7 @@ const Radar = ({appear_mode, onChange_appear}) => {
 // get imaging area from server
 function get_data( name_sat, mode, time_start, time_end) {
   const requestData = { 
-    table_name: 'skymed',
+    table_name: 'capella',
     name_sat: name_sat,
     mode: mode,
     time_start: time_start,
