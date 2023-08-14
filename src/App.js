@@ -8,6 +8,7 @@ import Int from "./pages/Int/Int"
 import Uploadfile from "./components/Uploadfile/Uploadfile";
 import { useState, useEffect } from "react";
 import Provider_geom from './store/Provide_geom'
+import { Viewer } from "resium";
 let cx = classNames.bind(styles)
 function App() {
   const [sharedData, setSharedData] = useState({
@@ -25,8 +26,8 @@ function App() {
     console.log(e)
   }
   return( 
-    <Provider_geom>
-      <Earth sharedData={sharedData} />  
+    <Provider_geom>    
+      <Earth sharedData={sharedData} />
       <Radar  appear_mode = {select_appear} onChange_appear={handle_select}/>
       <Satellite appear_mode = {select_appear} onChange_appear={handle_select}/>
       <Launch/>
@@ -36,4 +37,3 @@ function App() {
    );
 }
 export default App;
-

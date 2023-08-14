@@ -44,9 +44,10 @@ import {useState} from 'react';
         <Menu style={{backgroundColor:'rgba(38, 38, 38, 0.75)'}}>
           <Menu.Item key="option1" style={{height: '30px', lineHeight: '30px' , backgroundColor:'#92aa79', color:'#20467d',fontSize:'12px', fontWeight:'bold'}}>Capella</Menu.Item>
             <div style={{marginLeft: '10px' }}>
-           <Checkbox key={1} value= "Capella 07" checked={selected_all_Checkboxes.includes(1)} onChange={(e) => {handleCheckboxChange(1); handlechange(e)}}>Capella 06</Checkbox>
-           <Checkbox key={2} value= "Capella 07" checked={selected_all_Checkboxes.includes(2)} onChange={() => handleCheckboxChange(2)}>Capella 07</Checkbox>
-           <Checkbox key={3} value= "Capella 07" checked={selected_all_Checkboxes.includes(3)} onChange={() => handleCheckboxChange(3)}>Capella 08</Checkbox>
+           <Checkbox key={1} checked={selected_all_Checkboxes.includes(1)} onChange={(e) => {handleCheckboxChange(1); handlechange(e)}}>Capella 06</Checkbox>
+           <Checkbox key={2} checked={selected_all_Checkboxes.includes(2)} onChange={() => handleCheckboxChange(2)}>Capella 07</Checkbox>
+           <Checkbox key={3} 
+           checked={selected_all_Checkboxes.includes(3)} onChange={() => handleCheckboxChange(3)}>Capella 08</Checkbox>
            <Checkbox key={4} checked={selected_all_Checkboxes.includes(4)} onChange={() => handleCheckboxChange(4)}>Capella 09</Checkbox>
            <Checkbox key={5} checked={selected_all_Checkboxes.includes(5)} onChange={() => handleCheckboxChange(5)}>Capella 10</Checkbox>
              </div>

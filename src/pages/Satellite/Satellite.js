@@ -8,6 +8,7 @@ import { useState, useContext } from "react";
 import { Button, Space, Tooltip, Col, Row } from 'antd';
 import {Context, Context_Sat} from "../../store/Context";
 import FileUpload from "./FileUpload";
+import { Checkbox } from 'antd';
   // Add the desired icons to the library
   let cx = classNames.bind(styles)
   const Satellite = ({appear_mode, onChange_appear}) => {
@@ -34,6 +35,9 @@ import FileUpload from "./FileUpload";
            if (!response.ok) {
              throw new Error('Network response was not ok');
            }
+           else { 
+            console.log("success")
+           }
            const data = await response.json();
            //setDataSatellite(data); // Cập nhật state với dữ liệu mới từ API
            dispatch_sat({ type: 'UPDATE_STATE', payload: data });
@@ -46,6 +50,9 @@ import FileUpload from "./FileUpload";
       }
     // ........................................
     
+  // function displays the orbit of satellite
+  const onChange_orbit_display = () => {
+  }
     // const [fileData, setFileData] = useState("");
     // const getFile = (e) => {
     // setFileData(e.target.files[0]);
@@ -72,10 +79,18 @@ import FileUpload from "./FileUpload";
       </button>
       { appear_mode==="satellite" &&
         <div className={cx('select_parameters')} >
-          <Row gutter={[24, 48]} style={{paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
+          <Row gutter={[24, 48]} style={{border: '1px solid #444', paddingTop: '4px', paddingBottom:'4px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
               <FileUpload/>
           </Row>
-          <Row gutter={[24, 48]} style={{paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
+          <Row gutter={[24, 48]} style={{border: '1px solid #444', paddingTop: '4px', paddingBottom:'4px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
+              <Col  span={12} style={{ boder: '1px solid white', paddingTop:'0px', paddingRight:'5px',paddingLeft:'5px',paddingBottom:'0px' }}>
+                 Orbit_display
+                </Col>
+              <Col  span={12} style={{paddingTop:'0px', paddingRight:'5px',paddingLeft:'75px',paddingBottom:'0px'}} >
+                <Checkbox onChange={onChange_orbit_display}></Checkbox>
+              </Col>
+            </Row>
+          <Row gutter={[24, 48]} style={{ paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
             <Col  span={12} style={{paddingTop:'2px', paddingRight:'5px',paddingLeft:'5px',paddingBottom:'0px' }}>
                 <Button style={{background: 'rgb(243, 186, 68)', width: '100%' }}
                  onClick={onClick_tab_satellite}
@@ -91,9 +106,7 @@ import FileUpload from "./FileUpload";
                 </Button>
               </Col>
             </Row>
-            <Row gutter={[24, 48]} style={{paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
-            
-            </Row>
+           
           
         </div>
       }

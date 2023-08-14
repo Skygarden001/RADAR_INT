@@ -17,7 +17,7 @@ export default function DataTable() {
    // console.log('Selected Rows:', selectedRowsData);
   }, [selectedRows]);
   const [state, dispatch] = useContext(Context)
-  console.log(state)
+  console.log('table', state)
   const rows = state.features.map((feature) => feature.properties);
   const columns = [
     { field: 'id', headerName: 'Id', width: 50 },

@@ -20,7 +20,7 @@
     "antd": "^5.5.2",
     "axios": "^1.4.0",
     "babel-plugin-macros": "^3.1.0",
-    "cesium": "^1.106.1",
+    "cesium": "^1.108.0",
     "classnames": "^2.3.2",
     "craco-cesium": "^1.2.0",
     "customize-cra": "^1.0.0",
@@ -31,7 +31,7 @@
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
-    "resium": "^1.16.1",
+    "resium": "^1.17.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
