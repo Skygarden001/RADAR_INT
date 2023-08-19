@@ -7,10 +7,6 @@ const destination = Cartesian3.fromDegrees(109.61689827299801, 14.21017455801332
 function Earth({sharedData}) {
 const [state, dispatch] = useContext(Context);
 const [state_sat, dispatch_sat] = useContext(Context_Sat);
-// const [data, setSharedData] = useState();
-//   useEffect(() => {
-//     setSharedData(state_sat);
-//   });
    return ( 
          <div> 
             <Viewer full>

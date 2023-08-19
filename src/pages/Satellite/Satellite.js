@@ -4,16 +4,20 @@ import { GeoJsonDataSource, Viewer, CameraFlyTo } from 'resium';
 import { Cartesian3 } from "cesium";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEarthAsia } from '@fortawesome/free-solid-svg-icons';
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Button, Space, Tooltip, Col, Row } from 'antd';
 import {Context, Context_Sat} from "../../store/Context";
 import FileUpload from "./FileUpload";
 import { Checkbox } from 'antd';
+import get_tle_czml from './get_tle_czml';
+
   // Add the desired icons to the library
   let cx = classNames.bind(styles)
   const Satellite = ({appear_mode, onChange_appear}) => {
   const [state_sat, dispatch_sat] = useContext(Context_Sat);
   const [hidden_tab_satellite, setHidden_tab_satellite] = useState(false)
+  const [ fileTLE, setFileTLE] = useState('');
+  const [orbit, setOrbit]= useState(true)
   // hidden or show tab satellite
   const onClick_tab_satellite = () => {
     dispatch_sat({ type: 'UPDATE_STATE', payload: {id: "document",
@@ -21,54 +25,20 @@ import { Checkbox } from 'antd';
     version: "1.0",} });
     onChange_appear('satellite'); 
     }
+  
+  // fuctionn get local file_tle
+  
+  const handleFile_tle = (file_tle) => {
+    setFileTLE(file_tle)
+  }
   // seach satellite to dispaly on the earth's suface
+    const onChange_orbit_display = () => {
+      setOrbit(!orbit)
+  }
   const handle_search_satellite = () => {
-    console.log("event_happen")
-    get_czml_sattellite()
+    const l=get_tle_czml(fileTLE, orbit)
+    dispatch_sat({ type: 'UPDATE_STATE', payload: l});
   }
-  // function get file orbit position of satellite
-  function get_czml_sattellite()
-      {
-        const fetchDataFromAPI = async () => {
-         try {
-           const response = await fetch('http://192.168.100.43:3001/api/satellite');
-           if (!response.ok) {
-             throw new Error('Network response was not ok');
-           }
-           else { 
-            console.log("success")
-           }
-           const data = await response.json();
-           //setDataSatellite(data); // Cập nhật state với dữ liệu mới từ API
-           dispatch_sat({ type: 'UPDATE_STATE', payload: data });
-         } catch (error) {
-           console.error('Error fetching data:', error);
-         }
-         //console.log("data_satellite has changed:", data_satellite);
-       };
-       fetchDataFromAPI()
-      }
-    // ........................................
-    
-  // function displays the orbit of satellite
-  const onChange_orbit_display = () => {
-  }
-    // const [fileData, setFileData] = useState("");
-    // const getFile = (e) => {
-    // setFileData(e.target.files[0]);
-    // const uploadFile = (e) => { 
-    //   e.preventDefault();   
-    //   const data = new FormData();
-    //   data.append("file", fileData);
-    //   axios({
-    //     method: "POST",
-    //     url: "http://localhost:5000/upload",
-    //     data: data,
-    //   }).then((res) => {       
-    //       alert(res.data.message);
-    //   });
-    // };
-    // };
    return ( 
     <div className={cx('select_toolbar')}>
       <button 
@@ -80,14 +50,14 @@ import { Checkbox } from 'antd';
       { appear_mode==="satellite" &&
         <div className={cx('select_parameters')} >
           <Row gutter={[24, 48]} style={{border: '1px solid #444', paddingTop: '4px', paddingBottom:'4px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
-              <FileUpload/>
+          <FileUpload file_tle={handleFile_tle} />
           </Row>
           <Row gutter={[24, 48]} style={{border: '1px solid #444', paddingTop: '4px', paddingBottom:'4px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
               <Col  span={12} style={{ boder: '1px solid white', paddingTop:'0px', paddingRight:'5px',paddingLeft:'5px',paddingBottom:'0px' }}>
                  Orbit_display
                 </Col>
               <Col  span={12} style={{paddingTop:'0px', paddingRight:'5px',paddingLeft:'75px',paddingBottom:'0px'}} >
-                <Checkbox onChange={onChange_orbit_display}></Checkbox>
+                <Checkbox defaultChecked='true' onChange={onChange_orbit_display}></Checkbox>
               </Col>
             </Row>
           <Row gutter={[24, 48]} style={{ paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>

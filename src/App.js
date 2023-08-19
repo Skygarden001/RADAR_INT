@@ -23,7 +23,6 @@ function App() {
   const [select_appear, onClick_button] = useState();
   const handle_select =(e) => {
     onClick_button(e);
-    console.log(e)
   }
   return( 
     <Provider_geom>    
@@ -37,3 +36,4 @@ function App() {
    );
 }
 export default App;
+

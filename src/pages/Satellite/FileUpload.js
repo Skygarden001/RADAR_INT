@@ -1,24 +1,19 @@
-import React, { useState } from "react";
-import axios from "axios";
-function FileUpload() { 
-    const [fileData, setFileData] = useState("");
-    const getFile = (e) => {
-    setFileData(e.target.files[0]);
-    }; 
-    const uploadFile = (e) => { 
-        e.preventDefault();   
-        const data = new FormData();
-        data.append("file", fileData);
-        axios({
-          method: "POST",
-          url: "http://192.168.100.43:3001/api/tle",
-          data: data,
-        }).then((res) => {       
-            alert(res.data.message);
-        });
-      };
+import React, {useState} from "react";
+ 
+  function FileUpload({file_tle}) {
+    const getFile = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const content = e.target.result;
+          file_tle(content);
+        };
+        reader.readAsText(file);
+        
+      }
+    };
 
-    
     return (
       <>
       {/* <input type="file" onChange = {getFile} id="upload" hidden/>
@@ -27,10 +22,7 @@ function FileUpload() {
        > 
            Upload TLE
        </label> */}
-       <form onSubmit={uploadFile}>
         <input type="file" name="file" onChange={getFile} required />
-        <input type="submit" name="upload" value="Upload" />
-      </form>
       </>
     );
   }
