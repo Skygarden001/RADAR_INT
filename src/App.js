@@ -6,7 +6,8 @@ import Satellite from "./pages/Satellite/Satellite"
 import Launch from  "./pages/Launch/Launch"
 import Int from "./pages/Int/Int"
 import Uploadfile from "./components/Uploadfile/Uploadfile";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context_Sat } from "./store/Context";
 import Provider_geom from './store/Provide_geom'
 import { Viewer } from "resium";
 let cx = classNames.bind(styles)
@@ -24,6 +25,7 @@ function App() {
   const handle_select =(e) => {
     onClick_button(e);
   }
+  
   return( 
     <Provider_geom>    
       <Earth sharedData={sharedData} />

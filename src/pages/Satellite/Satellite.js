@@ -10,12 +10,12 @@ import {Context, Context_Sat} from "../../store/Context";
 import FileUpload from "./FileUpload";
 import { Checkbox } from 'antd';
 import get_tle_czml from './get_tle_czml';
-
+import DataTable from './Data_table';
   // Add the desired icons to the library
   let cx = classNames.bind(styles)
   const Satellite = ({appear_mode, onChange_appear}) => {
   const [state_sat, dispatch_sat] = useContext(Context_Sat);
-  const [hidden_tab_satellite, setHidden_tab_satellite] = useState(false)
+  //const [hidden_tab_satellite, setHidden_tab_satellite] = useState(false)
   const [ fileTLE, setFileTLE] = useState('');
   const [orbit, setOrbit]= useState(true)
   // hidden or show tab satellite
@@ -34,10 +34,14 @@ import get_tle_czml from './get_tle_czml';
   // seach satellite to dispaly on the earth's suface
     const onChange_orbit_display = () => {
       setOrbit(!orbit)
+      dispatch_sat({ type: 'UPDATE_STATE', payload: {id: "document",
+    name: "con cac",
+    version: "1.0",} });
   }
   const handle_search_satellite = () => {
     const l=get_tle_czml(fileTLE, orbit)
     dispatch_sat({ type: 'UPDATE_STATE', payload: l});
+    onChange_appear('satellite'); 
   }
    return ( 
     <div className={cx('select_toolbar')}>
@@ -59,6 +63,9 @@ import get_tle_czml from './get_tle_czml';
               <Col  span={12} style={{paddingTop:'0px', paddingRight:'5px',paddingLeft:'75px',paddingBottom:'0px'}} >
                 <Checkbox defaultChecked='true' onChange={onChange_orbit_display}></Checkbox>
               </Col>
+            </Row>
+            <Row gutter={[24, 48]} style={{paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
+              <DataTable/>
             </Row>
           <Row gutter={[24, 48]} style={{ paddingTop: '10px', marginTop:'2px', marginRight:'2px',marginLeft:'2px',marginBottom:'2px', color:"white" }}>
             <Col  span={12} style={{paddingTop:'2px', paddingRight:'5px',paddingLeft:'5px',paddingBottom:'0px' }}>
